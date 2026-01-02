@@ -9,6 +9,11 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use('/api/users',userRoutes);
 
+//task routes
+const taskRoutes = require('./routes/taskRoutes');
+// /projects/:projectId/tasks -> taskRoutes
+app.use('/api/projects',taskRoutes);
+
 app.get('/',(req,res)=>{
     console.log(req.headers)
     res.send('Hello World!');
